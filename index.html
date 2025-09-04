@@ -1,272 +1,342 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Jeanlucca</title>
-    <style>
-        body {
-            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-        }
-        section {
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        h2 a {
-            text-decoration: none;
-            font-size: 24px;
-        }
-        h2 a:hover {
-            opacity: 0.7;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        .separator {
-            height: 2px;
-            background: #ddd;
-            margin: 30px 0;
-        }
-                .accordion {
-            background: #eee;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s;
-        }
-
-        .accordion:hover {
-            background: #ddd;
-        }
-
-        .content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-            padding: 0 10px;
-            margin-top: 5px;
-            background: #f9f9f9;
-            border-left: 3px solid #007BFF;
-        }
-
-        .content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .content ul li {
-            margin: 5px 0;
-        }
-
-        .icon {
-            transition: transform 0.3s;
-        }
-
-        .open .icon {
-            transform: rotate(90deg);
-        }
-        .content ul li::before {
-            content: "•";
-            color: #007BFF;
-            margin-right: 8px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jeanlucca Mallia — Portfólio</title>
+<meta name="description" content="Desenvolvedor Fluig. Automação BPM/ECM, integrações Protheus/RM/FINNET, widgets e dashboards.">
+<meta name="theme-color" content="#0a192f">
+<style>
+:root{
+  --bg:#0a192f;
+  --panel:#0f213f;
+  --soft:#112240;
+  --text:#e6f1ff;
+  --muted:#a8b2d1;
+  --accent:#64ffda;
+  --accent-ghost:#64ffda1a;
+  --mono: ui-monospace,SFMono-Regular,Menlo,Consolas,Monaco,monospace;
+  --sans: Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  --max:1100px;
+  --pad:24px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+  line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+a.link{color:var(--accent)}
+a.link:hover{text-decoration:underline}
+.container{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.grid{
+  display:grid;grid-template-columns:280px 1fr;gap:48px
+}
+@media(max-width:1024px){.grid{grid-template-columns:1fr}}
+.aside{
+  position:sticky;top:0;height:100dvh;padding:48px var(--pad) 24px;border-right:1px solid #1b2b4b;
+  display:flex;flex-direction:column;justify-content:space-between
+}
+@media(max-width:1024px){.aside{position:relative;height:auto;border-right:0;padding:24px 0}}
+.brand h1{margin:0;font-size:28px;letter-spacing:.4px}
+.brand p{margin:8px 0 0;color:var(--muted);font-size:14px}
+.nav{margin:32px 0}
+.nav a{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;color:var(--muted);font-family:var(--mono);font-size:14px
+}
+.nav a .idx{color:var(--accent)}
+.nav a.active,.nav a:hover{background:var(--accent-ghost);color:var(--text)}
+.social{
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap
+}
+.social a{
+  display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;border:1px solid #24406d
+}
+.social a:hover{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ghost)}
+.main{padding:64px 0}
+@media(max-width:1024px){.main{padding-top:8px}}
+section{padding:72px 0;border-bottom:1px dashed #1b2b4b}
+section:last-child{border-bottom:0}
+.kicker{
+  font-family:var(--mono);color:var(--accent);font-size:14px;letter-spacing:.4px
+}
+.h1{font-size:40px;margin:8px 0 16px}
+.lead{color:var(--muted);max-width:680px}
+.cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;font-weight:600;border:1px solid var(--accent);color:var(--accent);background:transparent
+}
+.btn.filled{background:var(--accent);color:#0a192f;border-color:var(--accent)}
+.btn:hover{box-shadow:0 8px 24px -8px var(--accent-ghost);transform:translateY(-1px)}
+.subtle{color:var(--muted)}
+.h2{display:flex;align-items:center;gap:12px;font-size:22px;margin:0 0 20px}
+.h2 .idx{font-family:var(--mono);color:var(--accent)}
+.card{
+  background:linear-gradient(180deg,rgba(17,34,64,.65),rgba(17,34,64,.4));
+  border:1px solid #1b2b4b;border-radius:14px;padding:18px;transition:transform .2s,box-shadow .2s,border-color .2s
+}
+.card:hover{transform:translateY(-3px);border-color:#2d4a7a;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+.list{display:grid;gap:16px}
+.two{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.badge{
+  padding:6px 10px;border:1px solid #284671;border-radius:999px;font-family:var(--mono);font-size:12px;color:var(--muted)
+}
+.project{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:center
+}
+@media(max-width:900px){.project{grid-template-columns:1fr;gap:12px}}
+.thumb{
+  aspect-ratio:16/10;border-radius:12px;background:
+  radial-gradient(60% 80% at 20% 0%,#1a365d 0%,transparent 60%),
+  radial-gradient(80% 100% at 100% 0%,#173053 0%,transparent 60%),
+  linear-gradient(180deg,#0f213f 0%,#0b1a32 100%);
+  border:1px solid #243f6a;display:flex;align-items:center;justify-content:center;color:#89a3d6;font-family:var(--mono)
+}
+.project .title{font-size:20px;margin:0}
+.project .desc{color:var(--muted)}
+.linkrow{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+.mono{font-family:var(--mono)}
+.footer{
+  padding:32px 0;color:var(--muted);text-align:center;font-size:14px
+}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:999;background:#0d2750;color:#fff;padding:10px 14px;border-radius:8px;border:1px solid #24406d}
+.mobilebar{
+  display:none;position:sticky;top:0;z-index:10;background:rgba(10,25,47,.75);backdrop-filter: blur(6px);border-bottom:1px solid #1b2b4b
+}
+.mobilebar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad)}
+@media(max-width:1024px){.mobilebar{display:block}}
+.menu{
+  position:fixed;inset:0 0 auto auto;right:var(--pad);top:64px;background:#0e203e;border:1px solid #1b2b4b;border-radius:12px;display:none;min-width:220px
+}
+.menu a{display:block;padding:12px 14px;color:var(--muted)}
+.menu a:hover{background:var(--accent-ghost);color:var(--text)}
+hr.sep{border:0;border-top:1px dashed #1b2b4b;margin:24px 0}
+</style>
 </head>
 <body>
-    <header>🚀 Jeanlucca | Desenvolvedor Fluig e Outras Tecnologias</header>
-    <section>
-          <div class="container">
-            <h2 style="display: flex; align-items: center; position: relative;">
-                <a href="#sobre-mim" style="margin-right: 10px;">➡️</a> 
-                <span>Sobre Mim</span>
-                <a href="https://www.linkedin.com/in/jeanlucca-mallia/" target="_blank" title="LinkedIn" style="
-                    display: flex;
-                    align-items: center;
-                    background: #0077b5;
-                    color: white;
-                    padding: 8px 12px;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    font-weight: bold;
-                    font-size: 14px;
-                    margin-left: auto; /* Alinha o botão à direita */
-                ">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="white" style="margin-right: 5px;">
-                        <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zm-14.46 20.56H4.06V9h3.71v11.56zm-1.85-13.2c-1.19 0-2.15-.96-2.15-2.14 0-1.18.96-2.14 2.15-2.14s2.15.96 2.15 2.14c0 1.18-.96 2.14-2.15 2.14zM20.56 20.56h-3.7v-5.62c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.15 1.46-2.15 2.97v5.72H9.14V9h3.55v1.6h.05c.5-.95 1.72-1.86 3.54-1.86 3.79 0 4.48 2.5 4.48 5.76v6.06z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-            </h2>
-            <p id="sobre-mim">
-                Sou desenvolvedor Fluig e atuo na área desde 2021. Tenho experiência no desenvolvimento de soluções para automação de processos, 
-                criação de indicadores, widgets (públicas ou privadas) e integrações com diversas tecnologias, como <strong>Protheus, RM, Gupy</strong> e <strong>DocuSign</strong>.  
-                <br><br>
-                Tive a oportunidade de desenvolver projetos para <strong>diferentes setores</strong> e <strong>segmentos</strong>, cada um com suas particularidades e desafios. 
-                Essa diversidade me proporcionou uma visão ampla e estratégica, permitindo adaptar soluções a diferentes realidades e aprimorar minha capacidade de 
-                <strong>explorar novas abordagens para cada necessidade</strong>.  
-                <br><br>
-                Meu foco está sempre em <strong>resolver as dores do cliente</strong>, buscando as soluções mais <strong>seguras, eficientes</strong> e <strong>robustas</strong>. 
-                <br>
-                Já atuei em diferentes segmentos, incluindo:
-                <ul>
-                    <li>🏗️ <strong>Construção civil</strong> - Construtoras e empreiteiras</li>
-                    <li>🏫 <strong>Educação técnica</strong> - SENAI, SENAC e similares</li>
-                    <li>🛒 <strong>Varejo</strong> - Supermercados</li>
-                    <li>📡 <strong>Telecomunicações</strong></li>
-                    <li>🚛 <strong>Logística e transporte</strong></li>
-                    <li>⛴️ <strong>Navegação e transporte marítimo</strong></li>
-                </ul>
-            </p>
+<a class="skip" href="#inicio">Pular para o conteúdo</a>
 
-            <div class="separator"></div>
+<div class="mobilebar">
+  <div class="container wrap">
+    <strong>Jeanlucca</strong>
+    <button id="menuBtn" class="btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+  <div id="menu" class="menu">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#skills">Skills</a>
+    <a href="#contato">Contato</a>
+  </div>
+</div>
 
-            <h2><a href="#projetos">📌</a> Projetos</h2>
+<div class="container grid">
+  <aside class="aside">
+    <div>
+      <div class="brand">
+        <h1>Jeanlucca Mallia</h1>
+        <p>Dev Fluig • BPM/ECM • Integrações • Full stack</p>
+      </div>
+      <nav class="nav" aria-label="Navegação de seções">
+        <a href="#inicio"><span class="idx">01.</span>Início</a>
+        <a href="#sobre"><span class="idx">02.</span>Sobre</a>
+        <a href="#experiencia"><span class="idx">03.</span>Experiência</a>
+        <a href="#projetos"><span class="idx">04.</span>Projetos</a>
+        <a href="#skills"><span class="idx">05.</span>Skills</a>
+        <a href="#contato"><span class="idx">06.</span>Contato</a>
+      </nav>
+    </div>
+    <div class="social">
+      <a href="mailto:jeanlucca.mallia1@gmail.com" aria-label="Email">✉️</a>
+      <a href="https://www.linkedin.com/in/jeanlucca-mallia/" target="_blank" aria-label="LinkedIn">in</a>
+      <a href="https://github.com/JeanMallia" target="_blank" aria-label="GitHub">GH</a>
+      <a href="https://wa.me/5519993581015" target="_blank" aria-label="WhatsApp">WA</a>
+    </div>
+  </aside>
 
-            <div class="accordion" onclick="toggleAccordion('paineis')">
-                📊 Painéis e Widgets <span class="icon">▶️</span>
-            </div>
-            <div class="content" id="paineis">
-                <ul>
-                    <li><strong>Widget de Montagens Finalizadas</strong> - Controle de montagens no Fluig.</li>
-                    <li><strong>Desenvolvimento de painel de comissões</strong></li>
-                    <li><strong>Painel de férias</strong></li>
-                    <li><strong>Painel financeiro</strong></li>
-                    <li><strong>Painel público de controle de pedidos para fornecedores</strong> - Acesso controlado no Fluig para fornecedores.</li>
-                </ul>
-            </div>
-
-            <div class="accordion" onclick="toggleAccordion('bpm')">
-                🔄 BPM e ECM <span class="icon">▶️</span>
-            </div>
-            <div class="content" id="bpm">
-                <ul>
-                    <li><strong>Criação de fluxo de compra de passagens</strong></li>
-                    <li><strong>Solicitação de adiantamento de viagem</strong></li>
-                    <li><strong>Fluxo de admissão e demissão</strong></li>
-                    <li><strong>Fluxo de requisição de contratação de funcionário</strong></li>
-                    <li><strong>Controle de portaria</strong></li>
-                    <li><strong>Solicitação de treinamento</strong></li>
-                    <li><strong>Solicitação de serviço</strong></li>
-                </ul>
-            </div>
-
-            <div class="accordion" onclick="toggleAccordion('ams')">
-                🛠️ AMS (Suporte ao cliente) <span class="icon">▶️</span>
-            </div>
-            <div class="content" id="ams">
-                <ul>
-                    <li><strong>Suporte e atendimento a usuários</strong></li>
-                    <li><strong>Manutenção e revisão de fluxo de processos já desenvolvidos em diferentes clientes</strong></li>
-                </ul>
-            </div>
-
-            <div class="accordion" onclick="toggleAccordion('integracoes')">
-                🔗 Integrações Fluig x Outras Tecnologias <span class="icon">▶️</span>
-            </div>
-            <div class="content" id="integracoes">
-                <ul>
-                    <li><strong>Desenvolvimento de chatbot com TakeBlip e integração Fluig x TakeBlip</strong></li>
-                    <li><strong>Processo logístico completo</strong> - Entrada de pedidos, segregação do estoque, roteirização da carga, definição de frete, entrada na portaria, retirada e carregamento do pedido integrado com RM e portal externo para abertura de pedidos.</li>
-                    <li><strong>Cadastro de alteração de clientes e fornecedores</strong></li>
-                </ul>
-            </div>
-
-            <div class="separator"></div>
-
-            <h2><a href="#formacao">🎓</a> Formação Acadêmica e Cursos</h2>
-
-            <div class="container">
-                <h3>Formação Acadêmica</h3>
-                <ul style="padding-left: 20px;">
-                    <li><strong>🔹 Análise e Desenvolvimento de Sistemas</strong></li>
-                </ul>
-
-                <div class="separator" style="margin: 20px 0; height: 2px; background: #ddd;"></div>
-
-                <h3>Cursos e Especializações</h3>
-
-                <h4>Fluig e BPM - TOTVS Academy</h4>
-                <ul style="padding-left: 20px;">
-                    <li>🔹 <strong>Integração Fluig & Protheus</strong> (jan/2022)</li>
-                    <li>🔹 <strong>Integração Fluig x RM</strong></li>
-                    <li>🔹 <strong>Gestão de Processos - BPM/ECM</strong> (out/2021)</li>
-                    <li>🔹 <strong>Desenvolvimento de Processos - BPM/ECM Advanced</strong> (ago/2021)</li>
-                    <li>🔹 <strong>Desenvolvimento de Processos - BPM/ECM Intermediate</strong> (ago/2021)</li>
-                    <li>🔹 <strong>Fluig Dev Start</strong> (ago/2021)</li>
-                    <li>🔹 <strong>Instalação do Fluig</strong> (ago/2021)</li>
-                </ul>
-
-                <h4>Banco de Dados e SQL</h4>
-                <ul style="padding-left: 20px;">
-                    <li>🔹 <strong>Formação SQL Server 2017 - Desenvolvedor Expert SQL e T-SQL</strong> (Udemy - nov/2021)</li>
-                </ul>
-
-                <h4>Desenvolvimento Web e APIs</h4>
-                <ul style="padding-left: 20px;">
-                    <li>🔹 <strong>API Restful Javascript com Node.js, Typescript e TypeORM</strong> (Udemy)</li>
-                    <li>🔹 <strong>Desenvolvimento Web Completo - 20 cursos + 20 projetos</strong> (Udemy)</li>
-                </ul>
-
-                <h4>Outras Especializações</h4>
-                <ul style="padding-left: 20px;">
-                    <li>🔹 <strong>Especialização Técnica - Extensão em Sistemas da Qualidade</strong> (COTIL - Colégio Técnico de Limeira, dez/2014)</li>
-                </ul>
-            </div>
-
-        </div>
+  <main class="main">
+    <section id="inicio" class="reveal">
+      <div class="kicker mono">Olá, eu sou o</div>
+      <h2 class="h1">Jeanlucca — crio soluções Fluig que destravam processos.</h2>
+      <p class="lead">Desde 2021, ajudo empresas a automatizar fluxos no Fluig, integrar com Protheus/RM/FINNET e tirar dados do papel para painéis e widgets que realmente fazem diferença.</p>
+      <div class="cta">
+        <a class="btn filled" href="mailto:jeanlucca.m@gmail.com">Fale comigo</a>
+        <a class="btn" href="https://www.linkedin.com/in/jeanlucca-mallia/" target="_blank">LinkedIn</a>
+        <a class="btn" href="#projetos">Ver Projetos</a>
+      </div>
     </section>
 
-        <script>
-            function toggleAccordion(id) {
-                var content = document.getElementById(id);
-                var accordion = content.previousElementSibling;
+    <section id="sobre" class="reveal">
+      <h3 class="h2"><span class="idx mono">02.</span>Sobre mim</h3>
+      <p class="subtle">Atuo com BPM/ECM, criação de widgets públicos/privados, dashboards e integrações. Já trabalhei com construção civil, educação técnica, varejo, telecom, logística e navegação. Meu foco é resolver dores com soluções seguras, performáticas e sustentáveis.</p>
+      <hr class="sep">
+      <div class="list two">
+        <div class="card">
+          <div class="mono" style="color:var(--accent)">O que entrego</div>
+          <ul class="subtle">
+            <li>Automação de processos Fluig ponta a ponta</li>
+            <li>Integrações com Protheus, RM, FINNET</li>
+            <li>Widgets e painéis customizados</li>
+            <li>SQL e datasets robustos (SQL Server, Oracle)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="mono" style="color:var(--accent)">Como trabalho</div>
+          <ul class="subtle">
+            <li>Descoberta rápida e desenho do fluxo</li>
+            <li>Provas de conceito pragmáticas</li>
+            <li>Implantação incremental e segura</li>
+            <li>Documentação objetiva e handover</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-                if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-                    content.style.maxHeight = "0px";
-                    content.style.padding = "0 10px";
-                    accordion.classList.remove("open");
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    content.style.padding = "10px";
-                    accordion.classList.add("open");
-                }
-            }
-        </script>
+    <section id="experiencia" class="reveal">
+      <h3 class="h2"><span class="idx mono">03.</span>Experiência resumida</h3>
+      <div class="list">
+        <div class="card">
+          <strong>Desenvolvedor Fluig</strong>
+          <div class="subtle">Projetos em múltiplos clientes e setores • 2021 — atual</div>
+          <ul class="badges">
+            <span class="badge">BPM/ECM</span>
+            <span class="badge">Datasets</span>
+            <span class="badge">Integrações</span>
+            <span class="badge">Widgets</span>
+            <span class="badge">Javascript</span>
+            <span class="badge">HTML / CSS</span>
+            <span class="badge">SQL / SQL Server / Oracle</span>
+            <span class="badge">Java</span>
+            <span class="badge">C#</span>
+            <span class="badge">.Net</span>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <section id="projetos" class="reveal">
+          <h3 class="h2"><span class="idx mono">04.</span>Projetos em destaque</h3>
+
+          <article class="card project">
+            <div class="thumb mono">📊 Painéis & Widgets</div>
+            <div>
+              <h4 class="title">Painéis e Widgets</h4>
+              <ul class="desc subtle" style="padding-left:18px;margin:8px 0">
+                <li><strong>Widget de Montagens Finalizadas</strong> Controle de montagens no Fluig.</li>
+                <li><strong>Desenvolvimento de painel de comissões</strong></li>
+                <li><strong>Painel de férias</strong></li>
+                <li><strong>Painel financeiro</strong></li>
+                <li><strong>Painel público de controle de pedidos para fornecedores</strong> Acesso controlado no Fluig para fornecedores.</li>
+              </ul>
+              <div class="badges">
+                <span class="badge">Fluig</span><span class="badge">WCM - Widgets</span><span class="badge">SQL</span><span class="badge">Javascript</span><span class="badge">CSS</span><span class="badge">HTML</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="thumb mono">🔄 BPM & ECM</div>
+            <div>
+              <h4 class="title">BPM e ECM</h4>
+              <ul class="desc subtle" style="padding-left:18px;margin:8px 0">
+                <li><strong>Criação de fluxo de compra de passagens</strong></li>
+                <li><strong>Solicitação de adiantamento de viagem</strong></li>
+                <li><strong>Fluxo de admissão e demissão</strong></li>
+                <li><strong>Fluxo de requisição de contratação de funcionário</strong></li>
+                <li><strong>Controle de portaria</strong></li>
+                <li><strong>Solicitação de treinamento</strong></li>
+                <li><strong>Solicitação de serviço</strong></li>
+              </ul>
+              <div class="badges">
+                <span class="badge">BPM/ECM</span><span class="badge">Javascript</span><span class="badge">CSS</span><span class="badge">HTML</span><span class="badge">Integrações</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="thumb mono">🛠️ AMS</div>
+            <div>
+              <h4 class="title">AMS (Suporte ao cliente)</h4>
+              <ul class="desc subtle" style="padding-left:18px;margin:8px 0">
+                <li><strong>Suporte e atendimento a usuários</strong></li>
+                <li><strong>Manutenção e revisão de processos existentes</strong> em diferentes clientes</li>
+              </ul>
+              <div class="badges">
+                <span class="badge">Sustentação</span><span class="badge">Correções</span><span class="badge">Evolutivas</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="thumb mono">🔗 Integrações</div>
+            <div>
+              <h4 class="title">Integrações Fluig x Outras Tecnologias</h4>
+              <ul class="desc subtle" style="padding-left:18px;margin:8px 0">
+                <li><strong>Chatbot TakeBlip</strong> com integração Fluig × TakeBlip</li>
+                <li><strong>Processo logístico completo</strong> Entrada de pedidos, segregação de estoque, roteirização, frete, portaria, retirada e carregamento, integrado com RM e portal externo.</li>
+                <li><strong>Cadastro de alteração de clientes e fornecedores</strong></li>
+              </ul>
+              <div class="badges">
+                <span class="badge">APIs REST</span><span class="badge">Integração Fluig X RM</span><span class="badge">Integração Fluig X Protheus</span><span class="badge">TakeBlip</span>
+              </div>
+            </div>
+          </article>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h3 class="h2"><span class="idx mono">05.</span>Stack e ferramentas</h3>
+      <div class="card">
+        <div class="badges">
+          <span class="badge">Fluig BPM/ECM/WCM</span>
+          <span class="badge">Fluig Widgets Públicas</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">HTML/CSS</span>
+          <span class="badge">SQL Server</span>
+          <span class="badge">Oracle</span>
+          <span class="badge">Integração Fluig X Protheus</span>
+          <span class="badge">Integração Fluig X RM</span>
+          <span class="badge">FINNET</span>
+          <span class="badge">APIs REST</span>
+          <span class="badge">Git</span>
+          <span class="badge">Java</span>
+          <span class="badge">C#</span>
+          <span class="badge">.Net</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="reveal">
+      <h3 class="h2"><span class="idx mono">06.</span>Vamos conversar</h3>
+      <p class="lead">Tem um projeto Fluig para tirar do papel, otimizar ou integrar? Manda uma mensagem e eu te retorno.</p>
+      <div class="cta">
+        <a class="btn filled" href="mailto:jeanlucca.m@gmail.com">Enviar e-mail</a>
+        <a class="btn" href="https://www.linkedin.com/in/jeanlucca-mallia/" target="_blank">Conectar no LinkedIn</a>
+      </div>
+    </section>
+
+    <div class="footer mono">© <span id="y"></span> • Todos os direitos reservados • Jeanlucca</div>
+  </main>
+</div>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const links=[...document.querySelectorAll('.nav a')];
+const secs=[...document.querySelectorAll('main section')];
+const spy=()=>{let i=secs.length;while(--i&&window.scrollY+120<secs[i].offsetTop){}links.forEach(a=>a.classList.remove('active'));links[i]?.classList.add('active')};
+spy();window.addEventListener('scroll',spy);
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();document.querySelector(id).scrollIntoView({behavior:'smooth'})}}));
+document.getElementById('y').textContent=new Date().getFullYear();
+const btn=document.getElementById('menuBtn');const menu=document.getElementById('menu');
+btn.addEventListener('click',()=>{const v=menu.style.display==='block';menu.style.display=v?'none':'block';btn.setAttribute('aria-expanded',(!v).toString())});
+document.addEventListener('click',e=>{if(!menu.contains(e.target)&&e.target!==btn)menu.style.display='none'});
+</script>
 </body>
 </html>
